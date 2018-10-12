@@ -9,6 +9,10 @@ import * as React from "react";
 declare namespace ReactSound {
     type PlayStatus = 'PLAYING' | 'STOPPED' | 'PAUSED';
 
+    interface Position {
+        position: number;
+        duration: number;
+    }
     interface ReactSoundProps {
         url: string;
         playStatus: PlayStatus;
@@ -21,7 +25,7 @@ declare namespace ReactSound {
         onError?: () => void;
         onLoading?: () => void;
         onLoad?: () => void;
-        onPlaying?: () => void;
+        onPlaying?: (Position) => void;
         onPause?: () => void;
         onResume?: () => void;
         onStop?: () => void;
